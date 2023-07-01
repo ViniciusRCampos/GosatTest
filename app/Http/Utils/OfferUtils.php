@@ -2,7 +2,7 @@
 
 namespace App\Http\Utils;
 
-class OfferUtils {
+class OfferUtils{
     /* Manipulates the result of the api creating a list of institutions */
     public function getInstitution($array){
         $institutions = [];
