@@ -19,4 +19,14 @@ class OffersController extends Controller
             return response()->json($data, 200);
 
     }
+
+    public function readOffers(Request $request){
+        $offersService  = new OffersService();
+        $cpf = $request->cpf;
+        $data = $offersService->readOffers($cpf);
+        if(!$data){
+            return response()->json("Não foram encontradas ofertas para esse CPF,verifique os dados e tente novamente", 422);
+        } 
+            return response()->json($data, 200);
+    }
 }
