@@ -47,4 +47,14 @@ class OffersService{
         }
         return null;
         }
+        /* Find all offers for the informed cpf */ 
+        public function readOffers($cpf){
+            $cpf = preg_replace('/[^0-9]/', '', $cpf);
+            $offerModel = new Offers();
+            $data = $offerModel::where(['cpf' => $cpf])->get();
+            if(!$data){
+                return null;
+            }
+            return $data;
+        }
     }
