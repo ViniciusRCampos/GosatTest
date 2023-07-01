@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/', [OffersController::class, 'getOffers']);
+
+Route::post('/offers', [OffersController::class, 'readOffers']);
