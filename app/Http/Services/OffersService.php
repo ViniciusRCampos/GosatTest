@@ -40,12 +40,11 @@ class OffersService{
                 'taxa_juros' => $offer['taxa_juros'],
                 'qtd_parcelas' => $offer['qtd_parcelas'],
             ]);
-
-            if($created){
-                return 'Ofertas solicitadas com sucesso';
+            if(!$created){
+                return null;
             }
         }
-        return null;
+        return 'Ofertas solicitadas com sucesso';
         }
         /* Find all offers for the informed cpf */ 
         public function readOffers($cpf){
