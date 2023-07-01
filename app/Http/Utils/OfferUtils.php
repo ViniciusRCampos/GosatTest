@@ -3,6 +3,7 @@
 namespace App\Http\Utils;
 
 class OfferUtils {
+    /* Manipulates the result of the api creating a list of institutions */
     public function getInstitution($array){
         $institutions = [];
         foreach ($array->instituicoes as $instituicao) {
@@ -26,7 +27,7 @@ class OfferUtils {
         };
         return $institutions;
     }
-
+    /* Manipulates the array of institutions to request the released proposals and create an array of offers */
     public function getOffers($array, $client, $cpf){
         $offers = [];
         foreach($array as $offer) {

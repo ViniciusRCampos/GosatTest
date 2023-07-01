@@ -8,8 +8,10 @@ use App\Http\Utils\OfferUtils;
 
 class OfferService
 {
+    /* Function to get all the offers for the given CPF number */
     public function getOffers($cpf)
     {
+        /* ensures that the CPF is a number-only string */
         $cpf = preg_replace('/[^0-9]/', '', $cpf);
         $client = new Client();
         try{
@@ -22,9 +24,11 @@ class OfferService
         } catch (\Exception $e) {
             return null;
         }
+        /* details on OfferUtils folder */
         $institutions = $offerUtils->getInstitution($dataResult);
         $offers = $offerUtils->getOffers($institutions, $client, $cpf);
         
+        /* For each offer received, it checks if it exists and updates it or just creates a new one, if there are no offers it returns a null result */
         foreach ($offers as $offer){
             $created = $offerModel::updateOrCreate([
                 'cpf' => $offer['cpf'],
