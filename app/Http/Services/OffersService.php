@@ -51,7 +51,11 @@ class OffersService{
         public function readOffers($cpf){
             $cpf = preg_replace('/[^0-9]/', '', $cpf);
             $offerModel = new Offers();
-            $data = $offerModel::where(['cpf' => $cpf])->get();
+            $data = $offerModel::where(['cpf' => $cpf])
+            ->select('instituicao AS instituicaoFinanceira', 'modalidade AS modalidadeCredito', 'valor_a_pagar AS valorAPagar', 'valor_solicitado AS valorSolicitado', 'taxa_juros AS taxaJuros', 'qtd_parcelas AS qntParcelas')
+            ->orderBy('taxa_juros')
+            ->orderBy('valor_solicitado')
+            ->get();
             if(!$data){
                 return null;
             }
