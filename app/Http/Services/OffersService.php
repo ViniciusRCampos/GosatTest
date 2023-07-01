@@ -56,7 +56,7 @@ class OffersService{
             ->orderBy('taxa_juros')
             ->orderBy('valor_solicitado')
             ->get();
-            if(!$data){
+            if($data->isEmpty()){
                 return null;
             }
             return $data;
