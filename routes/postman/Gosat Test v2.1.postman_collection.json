@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "f24da472-4734-4feb-885f-cf9bd4ec4abb",
+		"name": "Gosat Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28288991"
+	},
+	"item": [
+		{
+			"name": "Gosat",
+			"item": [
+				{
+					"name": "getOffers",
+					"item": [
+						{
+							"name": "CPF 11111111111",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": 11111111111\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api"
+									]
+								},
+								"description": "Solicitando as Ofertas disponiveis para o CPF informado.  \nDessa vez o cpf utilizado estava como number."
+							},
+							"response": []
+						},
+						{
+							"name": "CPF 123.123.123-12",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": \"123.123.123-12\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api"
+									]
+								},
+								"description": "Solicitando as Ofertas disponiveis para o CPF informado.\nDessa vez o cpf utilizado estava como uma string."
+							},
+							"response": []
+						},
+						{
+							"name": "CPF \"22222222222\"",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": \"22222222222\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api"
+									]
+								},
+								"description": "Testando a rota para o cpf informado. Ainda é um CPF valido.\nAguarda o retorno informando que as ofertas foram solicitadas."
+							},
+							"response": []
+						},
+						{
+							"name": "CPF \"22222d22222\"",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": \"22222d22222\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api"
+									]
+								},
+								"description": "Testando o metodo e a rota com um CPF invalido.\nResposta esperada é uma mensagem informando que não existem ofertas para o CPF e pede para verificar as informações e tentar novamente"
+							},
+							"response": []
+						}
+					],
+					"description": "Testando o metodo post para a rota api/.  \n\nNessa rota é solicitado as ofertadas disponiveis para o cpf informado, caso o cpf seja invalido ou não encontre ofertas validas devolve um erro.  \n\nEssa rota aceita CPF como numeros ou strings, desde que sejam validos na API de busca."
+				},
+				{
+					"name": "readOffers",
+					"item": [
+						{
+							"name": "CPF \"12312312312\"",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": \"12312312312\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/offers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"offers"
+									]
+								},
+								"description": "Testando a rota para o CPF valido.  \nO resultado só aparecerá valido se houve a solicitação no GetOffers para o CPF informado.  \nRetorna todas as ofertas disponiveis para o CPF informado."
+							},
+							"response": []
+						},
+						{
+							"name": "CPF \"111.111.111-11\"",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": \"111.111.111-11\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/offers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"offers"
+									]
+								},
+								"description": "Testando a rota para o CPF valido.  \nO resultado só aparecerá valido se houve a solicitação no GetOffers para o CPF informado.  \nRetorna todas as ofertas disponiveis para o CPF informado."
+							},
+							"response": []
+						},
+						{
+							"name": "CPF 22222222222",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": 22222222222\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/offers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"offers"
+									]
+								},
+								"description": "Testando a rota para o CPF valido.\nO resultado só aparecerá valido se houve a solicitação no GetOffers para o CPF informado.\nRetorna todas as ofertas disponiveis para o CPF informado."
+							},
+							"response": []
+						},
+						{
+							"name": "CPF \"22222d22222\"",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpf\": \"22222d22222\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/offers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"offers"
+									]
+								},
+								"description": "O Cpf informado é invalido por possuir uma letra no meio do codigo.\nO retorno para esses casos é o mesmo de um cpf valido que ainda não foi feito a solicitação das ofertas.\nInforma que não foram encontradas ofertas e pede para verificar os dados e tentar novamente."
+							},
+							"response": []
+						}
+					],
+					"description": "Nessa pasta encontra-se os testes referentes a ofertas disponiveis para cada um dos cpfs validos, importante lembrar para que tenha uma resposta positiva tem que ter sido solicitado as ofertas antes de testar essa rota."
+				}
+			],
+			"description": "Nessa pasta encontra-se as 2 rotas disponiveis para a API criada no teste da empresa Gosat e a os testes mostrando o sucessos e falhas para validar as informações.\n\nPara que funcione corretamente executar as rotas e os metodos da pasta \"getOffers\" e só depois utilizar os metodos na pasta \"readOffers\""
+		}
+	]
+}
